@@ -15,7 +15,7 @@ def takeCommand():
     with speech_recognition.Microphone() as source:
         print("Listening...")
         r.pause_threshold = 1
-        r.energy_threshold = 300
+        r.energy_threshold = 400
         audio = r.listen(source, 0, 4)
 
     try:
@@ -27,3 +27,15 @@ def takeCommand():
         return "None"
     return query
 
+if __name__ == "__main__":
+    while True:
+        query = takeCommand().lower()
+        if "wake up" in query:
+            from GreetMe import greetMe
+            greetMe()
+
+            while True:
+                query = takeCommand().lower()
+                if "go to sleep" or "you can sleep" in query:
+                    speak("Ok boss, You can call me anytime")
+                    break
