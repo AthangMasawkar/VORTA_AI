@@ -39,3 +39,18 @@ if __name__ == "__main__":
                 if "go to sleep" or "you can sleep" in query:
                     speak("Ok boss, You can call me anytime")
                     break
+
+                elif "hello" in query:
+                    speak("Hello boss, how are you?")
+                elif "i am fine" in query:
+                    speak("That's great, boss")
+                elif "how are you" in query:
+                    speak("Perfect, boss")
+                elif "who made you" in query:
+                    speak("I am made by Group 1 of TE IT")
+                elif "who are you" in query:
+                    speak("I am VORTA AI Voice Assistant and I am here to assist you")
+                elif "thank you" or "thanks" in query:
+                    speak("You are welcome, boss")
+                elif "bye" or "goodbye" in query:
+                    speak("Hope you have a great day")
