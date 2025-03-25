@@ -1,5 +1,7 @@
 import pyttsx3
 import speech_recognition
+import requests
+from bs4 import BeautifulSoup
 
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voices")
@@ -64,3 +66,18 @@ if __name__ == "__main__":
                 elif "wikipedia" in query:
                     from SearchNow import searchWikipedia
                     searchWikipedia(query)
+
+                elif "temperature" in query:
+                    search = "temperature in mumbai"
+                    url = f"https://www.google.com/search?q={search}"
+                    r = requests.get(url)
+                    data = BeautifulSoup(r.text, "html.parser")
+                    temp = data.find("div", class_ = "BNeawe").text
+                    speak(f"current {search} is {temp}")
+                elif "weather" in query:
+                    search = "weather in mumbai"
+                    url = f"https://www.google.com/search?q={search}"
+                    r = requests.get(url)
+                    data = BeautifulSoup(r.text, "html.parser")
+                    weather = data.find("div", class_ = "BNeawe").text
+                    speak(f"current {search} is {weather}")

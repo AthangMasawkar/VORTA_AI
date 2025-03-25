@@ -1,2 +1,2 @@
 import pip
-pip.main(['install','speechRecognition','pywhatkit'])
+pip.main(['install','bs4'])
