@@ -54,3 +54,13 @@ if __name__ == "__main__":
                     speak("You are welcome, boss")
                 elif "bye" or "goodbye" in query:
                     speak("Hope you have a great day")
+
+                elif "google" in query:
+                    from SearchNow import searchGoogle
+                    searchGoogle(query)
+                elif "youtube" in query:
+                    from SearchNow import searchYoutube
+                    searchYoutube(query)
+                elif "wikipedia" in query:
+                    from SearchNow import searchWikipedia
+                    searchWikipedia(query)
