@@ -274,6 +274,18 @@ if __name__ == "__main__":
                     from game import game_play
                     game_play()
 
+                elif "screenshot" in query:
+                    im = pyautogui.screenshot()
+                    im.save("ss.jpg")
+
+                elif "click my photo" in query:
+                    pyautogui.press("super")
+                    pyautogui.typewrite("camera")
+                    pyautogui.press("enter")
+                    pyautogui.sleep(2)
+                    speak("SMILE")
+                    pyautogui.press("enter")
+
                 elif "finally sleep" in query:
                     speak("Going to sleep, boss")
                     exit()
