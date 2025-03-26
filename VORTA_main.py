@@ -243,6 +243,30 @@ if __name__ == "__main__":
                     speak(f"Wifi download speed in MB is {download_net}")
                     speak(f"Wifi Upload speed in MB is {upload_net}")
 
+                elif "ipl score" in query:
+                    from plyer import notification
+                    import requests
+                    from bs4 import BeautifulSoup
+                    url = "https://www.cricbuzz.com/"
+                    page = requests.get(url)
+                    soup = BeautifulSoup(page.text,"html.parser")
+                    team1 = soup.find_all(class_ = "cb-ovr-flo cb-hmscg-tm-nm")[0].get_text()
+                    team2 = soup.find_all(class_ = "cb-ovr-flo cb-hmscg-tm-nm")[1].get_text()
+                    team1_score = soup.find_all(class_ = "cb-ovr-flo")[8].get_text()
+                    team2_score = soup.find_all(class_ = "cb-ovr-flo")[10].get_text()
+
+                    a = print(f"{team1} : {team1_score}")
+                    b = print(f"{team2} : {team2_score}")
+
+                    mixer.init()
+                    mixer.music.load("notification.mp3")
+                    mixer.music.play()
+                    notification.notify(
+                        title = "IPL SCORE :- ",
+                        message = f"{team1} : {team1_score}\n {team2} : {team2_score}",
+                        timeout = 15
+                    )
+
                 elif "finally sleep" in query:
                     speak("Going to sleep, boss")
                     exit()
