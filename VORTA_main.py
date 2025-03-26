@@ -39,7 +39,7 @@ if __name__ == "__main__":
 
             while True:
                 query = takeCommand().lower()
-                if "go to sleep" or "you can sleep" in query:
+                if "go to sleep" in query or "you can sleep" in query:
                     speak("Ok boss, You can call me anytime")
                     break
 
@@ -53,10 +53,17 @@ if __name__ == "__main__":
                     speak("I am made by Group 1 of TE IT")
                 elif "who are you" in query:
                     speak("I am VORTA AI Voice Assistant and I am here to assist you")
-                elif "thank you" or "thanks" in query:
+                elif "thank you" in query or "thanks" in query:
                     speak("You are welcome, boss")
-                elif "bye" or "goodbye" in query:
+                elif "bye" in query or "goodbye" in query:
                     speak("Hope you have a great day")
+
+                elif "open" in query or "launch" in query:
+                    from Dictapp import openappweb
+                    openappweb(query)
+                elif "close" in query:
+                    from Dictapp import closewebapp
+                    closewebapp(query)
 
                 elif "google" in query:
                     from SearchNow import searchGoogle
@@ -83,7 +90,7 @@ if __name__ == "__main__":
                     weather = data.find("div", class_ = "BNeawe").text
                     speak(f"current {search} is {weather}")
 
-                elif "the time" or "current time" in query:
+                elif "the time" in query or "current time" in query:
                     strTime = datetime.datetime.now().strftime("%H:%M")
                     speak(f"Boss, the time is {strTime}")
 
