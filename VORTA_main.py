@@ -300,6 +300,12 @@ if __name__ == "__main__":
                     from FocusGraph import focus_graph
                     focus_graph()
 
+                elif "translate" in query:
+                    from Translator import translategl
+                    query = query.replace("vorta","")
+                    query = query.replace("translate","")
+                    translategl(query)
+
                 elif "finally sleep" in query:
                     speak("Going to sleep, boss")
                     exit()
