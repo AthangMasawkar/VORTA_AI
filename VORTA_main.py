@@ -152,6 +152,12 @@ if __name__ == "__main__":
                     from NewsRead import latestnews
                     latestnews()
 
+                elif "calculate" in query:
+                    from Calculatenumbers import WolfRamAlpha
+                    from Calculatenumbers import Calc
+                    query = query.replace("calculate","")
+                    query = query.replace("vorta","")
+                    Calc(query)
 
                 elif "finally sleep" in query:
                     speak("Going to sleep, boss")
