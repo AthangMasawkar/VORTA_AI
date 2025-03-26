@@ -8,6 +8,19 @@ import pyautogui
 import random
 import webbrowser
 
+for i in range(3):
+    a = input("Enter Password to open Jarvis :- ")
+    pw_file = open("password.txt","r")
+    pw = pw_file.read()
+    pw_file.close()
+    if (a==pw):
+        print("WELCOME BOSS ! PLZ SPEAK [WAKE UP] TO LOAD ME UP")
+        break
+    elif (i==2 and a!=pw):
+        exit()
+    elif (a!=pw):
+        print("Try Again")
+
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voices")
 engine.setProperty("voice", voices[0].id)
@@ -52,6 +65,15 @@ if __name__ == "__main__":
                 if "go to sleep" in query or "you can sleep" in query:
                     speak("Ok boss, You can call me anytime")
                     break
+
+                elif "change password" in query:
+                    speak("What's the new password")
+                    new_pw = input("Enter the new password\n")
+                    new_password = open("password.txt","w")
+                    new_password.write(new_pw)
+                    new_password.close()
+                    speak("Done boss")
+                    speak(f"Your new password is {new_pw}")
 
                 elif "hello" in query:
                     speak("Hello boss, how are you?")
