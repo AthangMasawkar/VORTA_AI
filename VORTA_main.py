@@ -128,6 +128,17 @@ if __name__ == "__main__":
                     speak("Turning volume down, boss")
                     volumedown()
 
+                elif "remember that" in query:
+                    rememberMessage = query.replace("remember that","")
+                    rememberMessage = query.replace("vorta","")
+                    speak("You told me"+rememberMessage)
+                    remember = open("Remember.txt","a")
+                    remember.write(rememberMessage)
+                    remember.close()
+                elif "what do you remember" in query:
+                    remember = open("Remember.txt","r")
+                    speak("You told me" + remember.read())
+
                 elif "finally sleep" in query:
                     speak("Going to sleep, boss")
                     exit()
