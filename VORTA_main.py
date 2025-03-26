@@ -25,6 +25,9 @@ for i in range(3):
     elif (a!=pw):
         print("Try Again")
 
+from INTRO import play_gif
+play_gif
+
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voices")
 engine.setProperty("voice", voices[0].id)
