@@ -121,6 +121,7 @@ if __name__ == "__main__":
                     data = BeautifulSoup(r.text, "html.parser")
                     temp = data.find("div", class_ = "BNeawe").text
                     speak(f"current {search} is {temp}")
+
                 elif "weather" in query:
                     search = "weather in mumbai"
                     url = f"https://www.google.com/search?q={search}"
@@ -166,11 +167,12 @@ if __name__ == "__main__":
                     remember = open("Remember.txt","a")
                     remember.write(rememberMessage)
                     remember.close()
+
                 elif "what do you remember" in query:
                     remember = open("Remember.txt","r")
                     speak("You told me" + remember.read())
 
-                elif "tired" in query:
+                elif "tired" in query or "songs" in query or "song" in query:
                     speak("Playing your favourite songs, boss")
                     a = (1,2,3) # You can choose any number of songs (I have only choosen 3)
                     b = random.choice(a)
@@ -285,6 +287,18 @@ if __name__ == "__main__":
                     pyautogui.sleep(2)
                     speak("SMILE")
                     pyautogui.press("enter")
+
+                elif "focus mode" in query:
+                    a = int(input("Are you sure that you want to enter focus mode :- [1 for YES / 2 for NO\n"))
+                    if (a==1):
+                        speak("Entering the focus mode....")
+                        os.startfile("C:\\Users\\Athang\\OneDrive\\Desktop\\VORTA_AI\\FocusMode.py")
+                    else:
+                        pass
+
+                elif "show my focus" in query:
+                    from FocusGraph import focus_graph
+                    focus_graph()
 
                 elif "finally sleep" in query:
                     speak("Going to sleep, boss")
