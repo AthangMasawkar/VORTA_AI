@@ -5,6 +5,8 @@ from bs4 import BeautifulSoup
 import datetime
 import os
 import pyautogui
+import random
+import webbrowser
 
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voices")
@@ -138,6 +140,18 @@ if __name__ == "__main__":
                 elif "what do you remember" in query:
                     remember = open("Remember.txt","r")
                     speak("You told me" + remember.read())
+
+                elif "tired" in query:
+                    speak("Playing your favourite songs, boss")
+                    a = (1,2,3) # You can choose any number of songs (I have only choosen 3)
+                    b = random.choice(a)
+                    if b==1:
+                        webbrowser.open("Here put the link of your video")
+
+                elif "news" in query:
+                    from NewsRead import latestnews
+                    latestnews()
+
 
                 elif "finally sleep" in query:
                     speak("Going to sleep, boss")
