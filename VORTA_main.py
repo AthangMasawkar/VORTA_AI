@@ -159,6 +159,10 @@ if __name__ == "__main__":
                     query = query.replace("vorta","")
                     Calc(query)
 
+                elif "whatsapp" in query:
+                    from Whatsapp import sendMessage
+                    sendMessage()
+
                 elif "finally sleep" in query:
                     speak("Going to sleep, boss")
                     exit()
