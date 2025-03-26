@@ -16,7 +16,7 @@ def speak(audio):
 dictapp = {"commandprompt":"cmd", "paint":"paint", "notepad":"notepad", "word":"winword", "excel":"excel", "chrome":"chrome", "vscode":"code", "powerpoint":"powerpnt"}
 
 def openappweb(query):
-    speak("Launching, boss")
+    speak("Launching boss")
     if ".com" in query or ".co.in" in query or ".org" in query:
         query = query.replace("open","")
         query = query.replace("vorta","")
@@ -30,7 +30,7 @@ def openappweb(query):
                 os.system(f"start {dictapp[app]}")
 
 def closewebapp(query):
-    speak("Closing, boss")
+    speak("Closing boss")
     if "one tab" in query or "1 tab" in query:
         pyautogui.hotkey("ctrl","w")
         speak("All tabs closed")

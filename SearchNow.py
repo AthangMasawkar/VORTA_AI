@@ -9,7 +9,7 @@ def takeCommand():
     with speech_recognition.Microphone() as source:
         print("Listening...")
         r.pause_threshold = 1
-        r.energy_threshold = 400
+        r.energy_threshold = 350
         audio = r.listen(source, 0, 4)
 
     try:
@@ -59,7 +59,7 @@ def searchYoutube(query):
         web = "https://www.youtube.com/results?search_query=" + query
         webbrowser.open(web)
         pywhatkit.playonyt(query)
-        speak("Done, Boss")
+        speak("Done Boss")
 
 def searchWikipedia(query):
     if "wikipedia" in query:

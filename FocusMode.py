@@ -11,7 +11,7 @@ def is_admin():
 
 if is_admin():
     current_time = datetime.datetime.now().strftime("%H:%M")
-    Stop_time = input("Enter stop time example:- [10:10]:- ")
+    Stop_time = input("Enter stop time eg:- [10:10]:- ")
     a = current_time.replace(":",".")
     a = float(a)
     b = Stop_time.replace(":",".")

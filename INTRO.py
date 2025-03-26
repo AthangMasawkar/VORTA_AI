@@ -6,7 +6,7 @@ from pygame import mixer
 mixer.init()
 
 root = Tk()
-root.geometry("1000x500")
+root.geometry("1000x700")
 
 def play_gif():
     root.lift()
@@ -20,7 +20,7 @@ def play_gif():
     mixer.music.play()
     
     for img in ImageSequence.Iterator(img):
-        img = img.resize((1000,500))
+        img = img.resize((1000,700))
         img = ImageTk.PhotoImage(img)
         lbl.config(image=img)
         root.update()

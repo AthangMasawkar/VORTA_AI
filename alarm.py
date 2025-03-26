@@ -30,7 +30,7 @@ def ring(time):
     while True:
         currenttime = datetime.datetime.now().strftime("%H:%M:%S")
         if currenttime == Alarmtime:
-            speak("Alarm ringing, boss")
+            speak("Alarm ringing boss")
             os.startfile("music.mp3")
         elif currenttime + "00:00:30" == Alarmtime:
             exit()

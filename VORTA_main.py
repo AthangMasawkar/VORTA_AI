@@ -42,7 +42,7 @@ def takeCommand():
     with speech_recognition.Microphone() as source:
         print("Listening...")
         r.pause_threshold = 1
-        r.energy_threshold = 400
+        r.energy_threshold = 350
         audio = r.listen(source, 0, 4)
 
     try:
@@ -93,7 +93,7 @@ if __name__ == "__main__":
                 elif "who are you" in query:
                     speak("I am VORTA AI Voice Assistant and I am here to assist you")
                 elif "thank you" in query or "thanks" in query:
-                    speak("You are welcome, boss")
+                    speak("You are welcome boss")
                 elif "bye" in query or "goodbye" in query:
                     speak("Hope you have a great day")
 
@@ -114,22 +114,6 @@ if __name__ == "__main__":
                     from SearchNow import searchWikipedia
                     searchWikipedia(query)
 
-                elif "temperature" in query:
-                    search = "temperature in mumbai"
-                    url = f"https://www.google.com/search?q={search}"
-                    r = requests.get(url)
-                    data = BeautifulSoup(r.text, "html.parser")
-                    temp = data.find("div", class_ = "BNeawe").text
-                    speak(f"current {search} is {temp}")
-
-                elif "weather" in query:
-                    search = "weather in mumbai"
-                    url = f"https://www.google.com/search?q={search}"
-                    r = requests.get(url)
-                    data = BeautifulSoup(r.text, "html.parser")
-                    weather = data.find("div", class_ = "BNeawe").text
-                    speak(f"current {search} is {weather}")
-
                 elif "the time" in query or "current time" in query:
                     strTime = datetime.datetime.now().strftime("%H:%M")
                     speak(f"Boss, the time is {strTime}")
@@ -139,41 +123,41 @@ if __name__ == "__main__":
                     speak("Set the time")
                     a = input("Please tell the time :- ")
                     alarm(a)
-                    speak("Done, boss")
+                    speak("Done boss")
 
-                elif "pause" in query:
+                elif "pause video" in query:
                     pyautogui.press("k")
                     speak("video paused")
-                elif "play" in query:
+                elif "play video" in query:
                     pyautogui.press("k")
                     speak("video played")
-                elif "mute" in query:
+                elif "mute video" in query:
                     pyautogui.press("m")
                     speak("video muted")
 
                 elif "volume up" in query:
                     from keyboard import volumeup
-                    speak("Turning volume up, boss")
+                    speak("Turning volume up boss")
                     volumeup()
                 elif "volume down" in query:
                     from keyboard import volumedown
-                    speak("Turning volume down, boss")
+                    speak("Turning volume down boss")
                     volumedown()
 
                 elif "remember that" in query:
                     rememberMessage = query.replace("remember that","")
                     rememberMessage = query.replace("vorta","")
-                    speak("You told me"+rememberMessage)
+                    speak("You told me "+rememberMessage)
                     remember = open("Remember.txt","a")
                     remember.write(rememberMessage)
                     remember.close()
 
                 elif "what do you remember" in query:
                     remember = open("Remember.txt","r")
-                    speak("You told me" + remember.read())
+                    speak("You told me " + remember.read())
 
                 elif "tired" in query or "songs" in query or "song" in query:
-                    speak("Playing your favourite songs, boss")
+                    speak("Playing your favourite songs boss")
                     a = (1,2,3,4,5,6,7)
                     b = random.choice(a)
                     if b==1:
@@ -260,30 +244,6 @@ if __name__ == "__main__":
                     speak(f"Wifi download speed in MB is {download_net}")
                     speak(f"Wifi Upload speed in MB is {upload_net}")
 
-                elif "ipl score" in query:
-                    from plyer import notification
-                    import requests
-                    from bs4 import BeautifulSoup
-                    url = "https://www.cricbuzz.com/"
-                    page = requests.get(url)
-                    soup = BeautifulSoup(page.text,"html.parser")
-                    team1 = soup.find_all(class_ = "cb-ovr-flo cb-hmscg-tm-nm")[0].get_text()
-                    team2 = soup.find_all(class_ = "cb-ovr-flo cb-hmscg-tm-nm")[1].get_text()
-                    team1_score = soup.find_all(class_ = "cb-ovr-flo")[8].get_text()
-                    team2_score = soup.find_all(class_ = "cb-ovr-flo")[10].get_text()
-
-                    a = print(f"{team1} : {team1_score}")
-                    b = print(f"{team2} : {team2_score}")
-
-                    mixer.init()
-                    mixer.music.load("notification.mp3")
-                    mixer.music.play()
-                    notification.notify(
-                        title = "IPL SCORE :- ",
-                        message = f"{team1} : {team1_score}\n {team2} : {team2_score}",
-                        timeout = 15
-                    )
-
                 elif "play a game" in query:
                     from game import game_play
                     game_play()
@@ -311,12 +271,6 @@ if __name__ == "__main__":
                 elif "show my focus" in query:
                     from FocusGraph import focus_graph
                     focus_graph()
-
-                elif "translate" in query:
-                    from Translator import translategl
-                    query = query.replace("vorta","")
-                    query = query.replace("translate","")
-                    translategl(query)
 
                 elif "finally sleep" in query:
                     speak("Going to sleep, boss")
