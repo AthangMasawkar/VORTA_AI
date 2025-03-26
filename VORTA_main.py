@@ -9,6 +9,8 @@ import random
 import webbrowser
 from plyer import notification
 from pygame import mixer
+import speedtest
+import speedtest_cli
 
 for i in range(3):
     a = input("Enter Password to open Jarvis :- ")
@@ -231,6 +233,15 @@ if __name__ == "__main__":
                         message = content,
                         timeout = 15
                         )
+                    
+                elif "internet speed" in query:
+                    wifi  = speedtest.Speedtest()
+                    upload_net = wifi.upload()/1048576         #Megabyte = 1024*1024 Bytes
+                    download_net = wifi.download()/1048576
+                    print("Wifi download speed in MB is ",download_net)
+                    print("Wifi Upload Speed in MB is ", upload_net)
+                    speak(f"Wifi download speed in MB is {download_net}")
+                    speak(f"Wifi Upload speed in MB is {upload_net}")
 
                 elif "finally sleep" in query:
                     speak("Going to sleep, boss")
