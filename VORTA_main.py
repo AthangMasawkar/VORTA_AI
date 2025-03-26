@@ -163,6 +163,14 @@ if __name__ == "__main__":
                     from Whatsapp import sendMessage
                     sendMessage()
 
+                elif "shutdown the system" in query:
+                    speak("Are You sure you want to shutdown")
+                    shutdown = input("Do you wish to shutdown your computer? (y/n)")
+                    if shutdown == "y":
+                        os.system("shutdown /s /t 1")
+                    elif shutdown == "n":
+                        break
+
                 elif "finally sleep" in query:
                     speak("Going to sleep, boss")
                     exit()
