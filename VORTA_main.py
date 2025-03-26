@@ -85,9 +85,9 @@ if __name__ == "__main__":
                 elif "hello" in query:
                     speak("Hello boss, how are you?")
                 elif "i am fine" in query:
-                    speak("That's great, boss")
-                elif "how are you" in query:
-                    speak("Perfect, boss")
+                    speak("That's great boss")
+                elif "how are you" in query or "how r u" in query:
+                    speak("Perfect boss")
                 elif "who made you" in query:
                     speak("I am made by Group 1 of TE IT")
                 elif "who are you" in query:
@@ -174,10 +174,22 @@ if __name__ == "__main__":
 
                 elif "tired" in query or "songs" in query or "song" in query:
                     speak("Playing your favourite songs, boss")
-                    a = (1,2,3) # You can choose any number of songs (I have only choosen 3)
+                    a = (1,2,3,4,5,6,7)
                     b = random.choice(a)
                     if b==1:
-                        webbrowser.open("Here put the link of your video")
+                        webbrowser.open("https://www.youtube.com/watch?v=FFbc-jXkADs")
+                    elif b==2:
+                        webbrowser.open("https://www.youtube.com/watch?v=hjfzFVw2Zjo")
+                    elif b==3:
+                        webbrowser.open("https://www.youtube.com/watch?v=S0WPSYFm7iE")
+                    elif b==4:
+                        webbrowser.open("https://www.youtube.com/watch?v=I5t894l5b1w")
+                    elif b==5:
+                        webbrowser.open("https://www.youtube.com/watch?v=MkABeVCv4lw")
+                    elif b==6:
+                        webbrowser.open("https://www.youtube.com/watch?v=EGExS_0qQq0")
+                    elif b==7:
+                        webbrowser.open("https://www.youtube.com/watch?v=-mKSeBJ_okY")
 
                 elif "news" in query:
                     from NewsRead import latestnews

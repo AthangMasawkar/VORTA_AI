@@ -12,12 +12,12 @@ def speak(audio):
     engine.runAndWait()
 
 def latestnews():
-    api_dict = {"business" : "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=#here paste your api key",
-            "entertainment" : "https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey=#here paste your api key",
-            "health" : "https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=#here paste your api key",
-            "science" :"https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=#here paste your api key",
-            "sports" :"https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=#here paste your api key",
-            "technology" :"https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=#here paste your api key"
+    api_dict = {"business" : "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=76c001a40c7745759ff2c3493c63c501",
+            "entertainment" : "https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey=76c001a40c7745759ff2c3493c63c501",
+            "health" : "https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=76c001a40c7745759ff2c3493c63c501",
+            "science" :"https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=76c001a40c7745759ff2c3493c63c501",
+            "sports" :"https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=76c001a40c7745759ff2c3493c63c501",
+            "technology" :"https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=76c001a40c7745759ff2c3493c63c501"
         }
 
     content = None
