@@ -270,6 +270,10 @@ if __name__ == "__main__":
                         timeout = 15
                     )
 
+                elif "play a game" in query:
+                    from game import game_play
+                    game_play()
+
                 elif "finally sleep" in query:
                     speak("Going to sleep, boss")
                     exit()
